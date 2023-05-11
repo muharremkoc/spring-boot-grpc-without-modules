@@ -1,0 +1,21 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package com.socialmedia.socialmediaservice.server;
+
+message SocialMediaRequest {
+  int32 userId = 1;
+}
+
+message SocialMedia {
+  int32 id = 1;
+  string appName = 2;
+  int32 userId = 3;
+}
+
+message SocialMediaResponse {
+  repeated SocialMedia socialMedia = 1;
+}
+
+service SocialMediaService {
+  rpc findSocialMediasByUserId(SocialMediaRequest) returns (SocialMediaResponse);
+}
